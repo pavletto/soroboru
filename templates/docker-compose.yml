@@ -1,0 +1,13 @@
+name: {{.Name}}
+services:
+  {{.Name}}:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    security_opt:
+      - seccomp:unconfined
+    ports:
+      - "{{.Port}}:8080"
+      - "{{.DLVPort}}:2345"
+    volumes:
+      - ./:/app
